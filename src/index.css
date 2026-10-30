@@ -1,0 +1,34 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root{--bg:246 247 252;--bg2:238 240 250;--surface:255 255 255;--ink:14 26 53;--muted:86 98 127;--line:226 230 242;--b1:79 43 196;--b2:124 58 237;--b3:20 16 60}
+:root.dark{--bg:8 13 28;--bg2:13 20 40;--surface:17 26 51;--ink:238 241 251;--muted:155 167 200;--line:34 45 79;--b1:156 130 255;--b2:167 139 250;--b3:220 214 255;color-scheme:dark}
+
+@layer base{
+  html{scroll-behavior:smooth;overflow-x:clip}
+  body{@apply bg-bg font-sans text-ink antialiased overflow-x-clip leading-relaxed}
+  h1,h2,h3,h4{@apply font-display tracking-tight leading-[1.12]}
+  p{@apply mb-4 text-muted}
+}
+@layer components{
+  .wrap{@apply mx-auto w-full max-w-[1200px] px-5 sm:px-6}
+  .section{@apply relative py-16 sm:py-24}
+  .btn{@apply inline-flex cursor-pointer items-center justify-center gap-2.5 whitespace-nowrap rounded-full border-[1.5px] border-transparent px-6 py-3.5 font-display text-[.95rem] font-bold transition duration-300}
+  .btn-sm{@apply px-5 py-2.5 text-sm}
+  .btn-primary{@apply bg-grad text-white shadow-glow hover:-translate-y-0.5 hover:brightness-110}
+  .btn-ghost{@apply border-line bg-surface text-ink hover:-translate-y-0.5 hover:border-brand2 hover:text-brand2}
+  .btn-wa{@apply bg-[#25d366] text-[#052b14] hover:-translate-y-0.5 hover:brightness-105}
+  .card{@apply relative overflow-hidden rounded-3xl border border-line bg-surface p-7 shadow-soft transition duration-300 hover:-translate-y-1.5 hover:border-brand2/50 hover:shadow-glow}
+  .card::before{content:'';@apply pointer-events-none absolute inset-x-0 top-0 h-1 origin-left scale-x-0 bg-grad transition-transform duration-500}
+  .card:hover::before{@apply scale-x-100}
+  .card-static{@apply rounded-3xl border border-line bg-surface p-7 shadow-soft}
+  .eyebrow{@apply mb-5 inline-flex items-center gap-2 rounded-full bg-brand2/10 px-3.5 py-1.5 font-display text-xs font-bold uppercase tracking-[.12em] text-brand2}
+  .ico{@apply mb-5 grid h-14 w-14 place-items-center rounded-2xl bg-grad text-white shadow-[0_10px_24px_-8px_rgba(108,79,208,.6)]}
+  .grad-text{@apply bg-grad bg-clip-text text-transparent}
+  .h1{@apply font-display text-[2.4rem] font-extrabold tracking-[-.035em] sm:text-6xl lg:text-[4.2rem]}
+  .h2{@apply font-display text-3xl font-extrabold sm:text-4xl lg:text-[2.8rem]}
+  .input{@apply w-full rounded-2xl border-[1.5px] border-line bg-bg px-4 py-3.5 text-[.96rem] text-ink transition focus:border-brand2 focus:outline-none focus:ring-4 focus:ring-brand2/20}
+  .label{@apply mb-2 block font-display text-sm font-semibold}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
